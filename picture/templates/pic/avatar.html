@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit picture{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row px-md-3 px-lg-0">
+        <div class="col">
+            <!-- main body -->
+            <h2 class="text-center">Edit picture</h2>
+            <br/>
+            <br/>
+            <div class="row mb-3">
+                <div class="col text-center">
+                    <button id="rotate-left" name="rotate-left" class="btn btn-outline-info" {% if picture_name == 'person.svg'%}disabled{% endif %}>Left</button>
+                    <button class="btn btn-outline-success fileinput-button">
+                        <span>Select</span>
+                        <input type="file" name="file" id="file-input" accept="image/png, image/jpeg" />
+                    </button>
+                    <button id="rotate-right" name="rotate-right" class="btn btn-outline-info" {% if picture_name == 'person.svg'%}disabled{% endif %}>Right</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <div id="picture" class="uploaded-container">
+                        <img id="pic" class="img-fluid uploaded-picture" src="{{ url_for('pic.send_file', t=picture_name) }}" />
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col text-center">
+                    <input type="hidden" name="csrfToken" id="csrfToken" value="{{ csrf_token() }}" />
+                    <button id="delete" name="delete" class="btn btn-outline-danger" {% if picture_name == 'person.svg'%}disabled{% endif %}>Delete</button>
+                    <button id="save" name="save" class="btn btn-primary" {% if picture_name == 'person.svg'%}disabled{% endif %}>Save</button>
+                    <button id="cancel" name="cancel" class="btn btn-outline-secondary">Cancel</button>
+                </div>
+            </div>
+		</div> <!-- /col -->
+	</div> <!-- /row -->
+</div> <!-- /container -->
+
+<!-- JavaScript -->
+<!-- Sweet Alert -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+    integrity="sha256-KsRuvuRtUVvobe66OFtOQfjP8WA2SzYsmm4VPfMnxms=" crossorigin="anonymous"></script>
+<!-- Croppie.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"
+    integrity="sha256-noEeBltqVSH78NQZV6+oF9BnLEtCY7cKc0U90dQVF6c=" crossorigin="anonymous"></script>
+<!-- Picture JS -->
+<script src="{{ url_for('static', filename='picture.js')|autoversion }}"></script>
+{% endblock %}

@@ -1,0 +1,40 @@
+/* GLOBAL CSS SETTINGS
+---------------------- */
+@charset "utf-8";
+html {
+  scroll-behavior: smooth;
+}
+body {
+  padding-top: 56px;
+}
+.container {
+  max-width: 960px;
+}
+.main-container-color {
+  background-color: rgb(233,236,239);
+}
+.fileinput-button {
+  position: relative;
+}
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.uploaded-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+}
+.uploaded-picture {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 50px;
+  left: 50px;
+}

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {% include '_head.html' %}
+        <!-- Title -->
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+
+    <body>
+        {% include '_navigation.html' %}
+
+        {% block content0 %}
+        {% endblock %}
+        
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

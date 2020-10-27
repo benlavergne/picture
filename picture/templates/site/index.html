@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Picture widget{% endblock %}
+
+{% block content0 %}
+<div class="container-fluid main-container-color px-0">
+    <div class="container pt-3 pb-4">
+        <h2 class="px-md-3 px-lg-0">Picture widget</h2>
+        <br />
+        <div class="row px-md-3 px-lg-0">
+            <div class="col-2 pr-0">
+                <img class="img-fluid rounded" src="{{ url_for('pic.send_file', t=picture_name) }}" width="120" height="120">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row px-md-3 px-lg-0">
+        <div class="col">
+            <h5>
+                <a href="{{ url_for('pic.avatar') }}" class="text-decoration-none" title="click to edit">Edit picture</a>
+            </h5>
+            <p>Select, Upload, Display, Zoom, Rotate left and right, Crop, Delete and Save your picture</p>
+            <br/>
+            <br/>
+        </div> <!-- /col -->
+    </div> <!-- /row -->
+</div> <!-- /container -->
+{% endblock %}
